@@ -1,0 +1,1187 @@
+Commands used in assignment:-
+sudo su -
+cd $home
+kubectl delete all --all;
+yum install git -y
+cd /root/example-voting-app
+kubectl get pods -v=8
+checking few  files
+kubectl apply -f .
+kubectl get all
+kubectl get pods
+kubectl delete po vote-94849dc97-pk4t9
+kubectl logs worker-dd46d7584-pl6d6
+kubectl get po -o wide
+etc.,
+
+Snapshot of logs:-
+
+[root@ip-172-31-13-238 ~]# cd $home
+[root@ip-172-31-13-238 ~]# kubectl delete all --all;
+service "kubernetes" deleted
+[root@ip-172-31-13-238 ~]# yum install git -y
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+amzn2-core                                                                                                                            | 3.7 kB  00:00:00
+amzn2extra-docker                                                                                                                     | 3.0 kB  00:00:00
+amzn2extra-kernel-5.10                                                                                                                | 3.0 kB  00:00:00
+kubernetes                                                                                                                            | 1.4 kB  00:00:00
+kubernetes/primary                                                                                                                    | 122 kB  00:00:00
+kubernetes                                                                                                                                           906/906
+Resolving Dependencies
+--> Running transaction check
+---> Package git.x86_64 0:2.37.1-1.amzn2.0.1 will be updated
+--> Processing Dependency: git = 2.37.1-1.amzn2.0.1 for package: perl-Git-2.37.1-1.amzn2.0.1.noarch
+---> Package git.x86_64 0:2.38.1-1.amzn2.0.1 will be an update
+--> Processing Dependency: git-core-doc = 2.38.1-1.amzn2.0.1 for package: git-2.38.1-1.amzn2.0.1.x86_64
+--> Processing Dependency: git-core = 2.38.1-1.amzn2.0.1 for package: git-2.38.1-1.amzn2.0.1.x86_64
+--> Running transaction check
+---> Package git-core.x86_64 0:2.37.1-1.amzn2.0.1 will be updated
+---> Package git-core.x86_64 0:2.38.1-1.amzn2.0.1 will be an update
+---> Package git-core-doc.noarch 0:2.37.1-1.amzn2.0.1 will be updated
+---> Package git-core-doc.noarch 0:2.38.1-1.amzn2.0.1 will be an update
+---> Package perl-Git.noarch 0:2.37.1-1.amzn2.0.1 will be updated
+---> Package perl-Git.noarch 0:2.38.1-1.amzn2.0.1 will be an update
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=============================================================================================================================================================
+ Package                               Arch                            Version                                     Repository                           Size
+=============================================================================================================================================================
+Updating:
+ git                                   x86_64                          2.38.1-1.amzn2.0.1                          amzn2-core                           64 k
+Updating for dependencies:
+ git-core                              x86_64                          2.38.1-1.amzn2.0.1                          amzn2-core                          7.4 M
+ git-core-doc                          noarch                          2.38.1-1.amzn2.0.1                          amzn2-core                          2.9 M
+ perl-Git                              noarch                          2.38.1-1.amzn2.0.1                          amzn2-core                           40 k
+
+Transaction Summary
+=============================================================================================================================================================
+Upgrade  1 Package (+3 Dependent packages)
+
+Total download size: 10 M
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+(1/4): git-2.38.1-1.amzn2.0.1.x86_64.rpm                                                                                              |  64 kB  00:00:00
+(2/4): git-core-doc-2.38.1-1.amzn2.0.1.noarch.rpm                                                                                     | 2.9 MB  00:00:00
+(3/4): git-core-2.38.1-1.amzn2.0.1.x86_64.rpm                                                                                         | 7.4 MB  00:00:00
+(4/4): perl-Git-2.38.1-1.amzn2.0.1.noarch.rpm                                                                                         |  40 kB  00:00:00
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                         32 MB/s |  10 MB  00:00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : git-core-2.38.1-1.amzn2.0.1.x86_64                                                                                                        1/8
+  Updating   : git-core-doc-2.38.1-1.amzn2.0.1.noarch                                                                                                    2/8
+  Updating   : perl-Git-2.38.1-1.amzn2.0.1.noarch                                                                                                        3/8
+  Updating   : git-2.38.1-1.amzn2.0.1.x86_64                                                                                                             4/8
+  Cleanup    : perl-Git-2.37.1-1.amzn2.0.1.noarch                                                                                                        5/8
+  Cleanup    : git-2.37.1-1.amzn2.0.1.x86_64                                                                                                             6/8
+  Cleanup    : git-core-doc-2.37.1-1.amzn2.0.1.noarch                                                                                                    7/8
+  Cleanup    : git-core-2.37.1-1.amzn2.0.1.x86_64                                                                                                        8/8
+  Verifying  : git-core-doc-2.38.1-1.amzn2.0.1.noarch                                                                                                    1/8
+  Verifying  : git-2.38.1-1.amzn2.0.1.x86_64                                                                                                             2/8
+  Verifying  : git-core-2.38.1-1.amzn2.0.1.x86_64                                                                                                        3/8
+  Verifying  : perl-Git-2.38.1-1.amzn2.0.1.noarch                                                                                                        4/8
+  Verifying  : git-core-doc-2.37.1-1.amzn2.0.1.noarch                                                                                                    5/8
+  Verifying  : perl-Git-2.37.1-1.amzn2.0.1.noarch                                                                                                        6/8
+  Verifying  : git-2.37.1-1.amzn2.0.1.x86_64                                                                                                             7/8
+  Verifying  : git-core-2.37.1-1.amzn2.0.1.x86_64                                                                                                        8/8
+
+Updated:
+  git.x86_64 0:2.38.1-1.amzn2.0.1
+
+Dependency Updated:
+  git-core.x86_64 0:2.38.1-1.amzn2.0.1              git-core-doc.noarch 0:2.38.1-1.amzn2.0.1              perl-Git.noarch 0:2.38.1-1.amzn2.0.1
+
+Complete!
+[root@ip-172-31-13-238 ~]# git clone  https://github.com/ashishrpandey/example-voting-app
+Cloning into 'example-voting-app'...
+remote: Enumerating objects: 494, done.
+remote: Total 494 (delta 0), reused 0 (delta 0), pack-reused 494
+Receiving objects: 100% (494/494), 236.17 KiB | 5.90 MiB/s, done.
+Resolving deltas: 100% (179/179), done.
+[root@ip-172-31-13-238 ~]#
+[root@ip-172-31-13-238 ~]# cd /root/example-voting-app
+[root@ip-172-31-13-238 example-voting-app]# ls -lrth
+total 96K
+drwxr-xr-x 5 root root  133 Dec 10 05:46 result
+-rw-r--r-- 1 root root 2.2K Dec 10 05:46 README.md
+-rw-r--r-- 1 root root  185 Dec 10 05:46 MAINTAINERS
+-rw-r--r-- 1 root root  11K Dec 10 05:46 LICENSE
+drwxr-xr-x 2 root root  250 Dec 10 05:46 k8s-specifications
+-rw-r--r-- 1 root root 1.7K Dec 10 05:46 docker-stack.yml
+-rw-r--r-- 1 root root  808 Dec 10 05:46 docker-compose.yml
+-rw-r--r-- 1 root root  400 Dec 10 05:46 docker-compose-simple.yml
+-rw-r--r-- 1 root root  808 Dec 10 05:46 docker-compose-javaworker.yml
+-rw-r--r-- 1 root root  609 Dec 10 05:46 dockercloud.yml
+-rw-r--r-- 1 root root  54K Dec 10 05:46 architecture.png
+drwxr-xr-x 3 root root   70 Dec 10 05:46 worker
+drwxr-xr-x 4 root root   93 Dec 10 05:46 vote
+[root@ip-172-31-13-238 example-voting-app]# cd  k8s-specifications
+[root@ip-172-31-13-238 k8s-specifications]# pwd
+/root/example-voting-app/k8s-specifications
+[root@ip-172-31-13-238 k8s-specifications]# ls -lrth
+total 36K
+-rw-r--r-- 1 root root 292 Dec 10 05:46 worker-deployment.yaml
+-rw-r--r-- 1 root root 192 Dec 10 05:46 vote-service.yaml
+-rw-r--r-- 1 root root 289 Dec 10 05:46 vote-deployment.yaml
+-rw-r--r-- 1 root root 195 Dec 10 05:46 result-service.yaml
+-rw-r--r-- 1 root root 299 Dec 10 05:46 result-deployment.yaml
+-rw-r--r-- 1 root root 152 Dec 10 05:46 redis-service.yaml
+-rw-r--r-- 1 root root 402 Dec 10 05:46 redis-deployment.yaml
+-rw-r--r-- 1 root root 146 Dec 10 05:46 db-service.yaml
+-rw-r--r-- 1 root root 401 Dec 10 05:46 db-deployment.yaml
+[root@ip-172-31-13-238 k8s-specifications]# c ..
+-bash: c: command not found
+[root@ip-172-31-13-238 k8s-specifications]# cd ..
+[root@ip-172-31-13-238 example-voting-app]# ll
+total 96
+-rw-r--r-- 1 root root 54824 Dec 10 05:46 architecture.png
+-rw-r--r-- 1 root root   609 Dec 10 05:46 dockercloud.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose-javaworker.yml
+-rw-r--r-- 1 root root   400 Dec 10 05:46 docker-compose-simple.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose.yml
+-rw-r--r-- 1 root root  1692 Dec 10 05:46 docker-stack.yml
+drwxr-xr-x 2 root root   250 Dec 10 05:46 k8s-specifications
+-rw-r--r-- 1 root root 10758 Dec 10 05:46 LICENSE
+-rw-r--r-- 1 root root   185 Dec 10 05:46 MAINTAINERS
+-rw-r--r-- 1 root root  2182 Dec 10 05:46 README.md
+drwxr-xr-x 5 root root   133 Dec 10 05:46 result
+drwxr-xr-x 4 root root    93 Dec 10 05:46 vote
+drwxr-xr-x 3 root root    70 Dec 10 05:46 worker
+[root@ip-172-31-13-238 example-voting-app]# cd vote
+[root@ip-172-31-13-238 vote]# ll
+total 12
+-rw-r--r-- 1 root root 1123 Dec 10 05:46 app.py
+-rw-r--r-- 1 root root  557 Dec 10 05:46 Dockerfile
+-rw-r--r-- 1 root root   21 Dec 10 05:46 requirements.txt
+drwxr-xr-x 3 root root   25 Dec 10 05:46 static
+drwxr-xr-x 2 root root   24 Dec 10 05:46 templates
+[root@ip-172-31-13-238 vote]# cat app.py
+from flask import Flask, render_template, request, make_response, g
+from redis import Redis
+import os
+import socket
+import random
+import json
+
+option_a = os.getenv('OPTION_A', "Cats")
+option_b = os.getenv('OPTION_B', "Dogs")
+hostname = socket.gethostname()
+
+app = Flask(__name__)
+
+def get_redis():
+    if not hasattr(g, 'redis'):
+        g.redis = Redis(host="redis", db=0, socket_timeout=5)
+    return g.redis
+
+@app.route("/", methods=['POST','GET'])
+def hello():
+    voter_id = request.cookies.get('voter_id')
+    if not voter_id:
+        voter_id = hex(random.getrandbits(64))[2:-1]
+
+    vote = None
+
+    if request.method == 'POST':
+        redis = get_redis()
+        vote = request.form['vote']
+        data = json.dumps({'voter_id': voter_id, 'vote': vote})
+        redis.rpush('votes', data)
+
+    resp = make_response(render_template(
+        'index.html',
+        option_a=option_a,
+        option_b=option_b,
+        hostname=hostname,
+        vote=vote,
+    ))
+    resp.set_cookie('voter_id', voter_id)
+    return resp
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=80, debug=True, threaded=True)
+[root@ip-172-31-13-238 vote]#
+[root@ip-172-31-13-238 vote]# ll
+total 12
+-rw-r--r-- 1 root root 1123 Dec 10 05:59 app.py
+-rw-r--r-- 1 root root  557 Dec 10 05:46 Dockerfile
+-rw-r--r-- 1 root root   21 Dec 10 05:46 requirements.txt
+drwxr-xr-x 3 root root   25 Dec 10 05:46 static
+drwxr-xr-x 2 root root   24 Dec 10 05:46 templates
+[root@ip-172-31-13-238 vote]# cd ..
+[root@ip-172-31-13-238 example-voting-app]# ll
+total 96
+-rw-r--r-- 1 root root 54824 Dec 10 05:46 architecture.png
+-rw-r--r-- 1 root root   609 Dec 10 05:46 dockercloud.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose-javaworker.yml
+-rw-r--r-- 1 root root   400 Dec 10 05:46 docker-compose-simple.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose.yml
+-rw-r--r-- 1 root root  1692 Dec 10 05:46 docker-stack.yml
+drwxr-xr-x 2 root root   250 Dec 10 05:46 k8s-specifications
+-rw-r--r-- 1 root root 10758 Dec 10 05:46 LICENSE
+-rw-r--r-- 1 root root   185 Dec 10 05:46 MAINTAINERS
+-rw-r--r-- 1 root root  2182 Dec 10 05:46 README.md
+drwxr-xr-x 5 root root   133 Dec 10 05:46 result
+drwxr-xr-x 4 root root    93 Dec 10 05:59 vote
+drwxr-xr-x 3 root root    70 Dec 10 05:46 worker
+[root@ip-172-31-13-238 example-voting-app]# cd  k8s-specifications
+[root@ip-172-31-13-238 k8s-specifications]# pwd
+/root/example-voting-app/k8s-specifications
+[root@ip-172-31-13-238 k8s-specifications]# ll
+total 36
+-rw-r--r-- 1 root root 401 Dec 10 05:46 db-deployment.yaml
+-rw-r--r-- 1 root root 146 Dec 10 05:46 db-service.yaml
+-rw-r--r-- 1 root root 402 Dec 10 05:46 redis-deployment.yaml
+-rw-r--r-- 1 root root 152 Dec 10 05:46 redis-service.yaml
+-rw-r--r-- 1 root root 299 Dec 10 05:46 result-deployment.yaml
+-rw-r--r-- 1 root root 195 Dec 10 05:46 result-service.yaml
+-rw-r--r-- 1 root root 289 Dec 10 05:46 vote-deployment.yaml
+-rw-r--r-- 1 root root 192 Dec 10 05:46 vote-service.yaml
+-rw-r--r-- 1 root root 292 Dec 10 05:46 worker-deployment.yaml
+[root@ip-172-31-13-238 k8s-specifications]# kubectl get pods
+No resources found in default namespace.
+[root@ip-172-31-13-238 k8s-specifications]# kubectl get pods -v=8
+I1210 06:02:41.697105     539 loader.go:375] Config loaded from file:  /root/.kube/config
+I1210 06:02:41.708369     539 round_trippers.go:420] GET https://172.31.13.238:6443/api/v1/namespaces/default/pods?limit=500
+I1210 06:02:41.708515     539 round_trippers.go:427] Request Headers:
+I1210 06:02:41.708592     539 round_trippers.go:431]     Accept: application/json;as=Table;v=v1;g=meta.k8s.io,application/json;as=Table;v=v1beta1;g=meta.k8s.io,application/json
+I1210 06:02:41.708675     539 round_trippers.go:431]     User-Agent: kubectl/v1.18.5 (linux/amd64) kubernetes/e6503f8
+I1210 06:02:41.723104     539 round_trippers.go:446] Response Status: 200 OK in 14 milliseconds
+I1210 06:02:41.723294     539 round_trippers.go:449] Response Headers:
+I1210 06:02:41.723340     539 round_trippers.go:452]     Cache-Control: no-cache, private
+I1210 06:02:41.723369     539 round_trippers.go:452]     Content-Type: application/json
+I1210 06:02:41.723406     539 round_trippers.go:452]     Content-Length: 2928
+I1210 06:02:41.723434     539 round_trippers.go:452]     Date: Sat, 10 Dec 2022 06:02:41 GMT
+I1210 06:02:41.723512     539 request.go:1068] Response Body: {"kind":"Table","apiVersion":"meta.k8s.io/v1","metadata":{"selfLink":"/api/v1/namespaces/default/pods","resourceVersion":"1971663"},"columnDefinitions":[{"name":"Name","type":"string","format":"name","description":"Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names","priority":0},{"name":"Ready","type":"string","format":"","description":"The aggregate readiness state of this pod for accepting traffic.","priority":0},{"name":"Status","type":"string","format":"","description":"The aggregate status of the containers in this pod.","priority":0},{"name":"Restarts","type":"integer","format":"","description":"The number of times the containers in this pod have been restarted.","priority":0},{"name":"Age","type":"string"," [truncated 1904 chars]
+No resources found in default namespace.
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# cd ..
+[root@ip-172-31-13-238 example-voting-app]# ll
+total 96
+-rw-r--r-- 1 root root 54824 Dec 10 05:46 architecture.png
+-rw-r--r-- 1 root root   609 Dec 10 05:46 dockercloud.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose-javaworker.yml
+-rw-r--r-- 1 root root   400 Dec 10 05:46 docker-compose-simple.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose.yml
+-rw-r--r-- 1 root root  1692 Dec 10 05:46 docker-stack.yml
+drwxr-xr-x 2 root root   250 Dec 10 05:46 k8s-specifications
+-rw-r--r-- 1 root root 10758 Dec 10 05:46 LICENSE
+-rw-r--r-- 1 root root   185 Dec 10 05:46 MAINTAINERS
+-rw-r--r-- 1 root root  2182 Dec 10 05:46 README.md
+drwxr-xr-x 5 root root   133 Dec 10 05:46 result
+drwxr-xr-x 4 root root    93 Dec 10 05:59 vote
+drwxr-xr-x 3 root root    70 Dec 10 05:46 worker
+[root@ip-172-31-13-238 example-voting-app]# cd result/
+[root@ip-172-31-13-238 result]# ll
+total 16
+-rw-r--r-- 1 root root  787 Dec 10 05:46 docker-compose.test.yml
+-rw-r--r-- 1 root root  334 Dec 10 05:46 Dockerfile
+-rw-r--r-- 1 root root  417 Dec 10 05:46 package.json
+-rw-r--r-- 1 root root 2239 Dec 10 05:46 server.js
+drwxr-xr-x 2 root root   57 Dec 10 05:46 tests
+drwxr-xr-x 3 root root   77 Dec 10 05:46 views
+[root@ip-172-31-13-238 result]# cat server.js
+var express = require('express'),
+    async = require('async'),
+    pg = require("pg"),
+    path = require("path"),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+    methodOverride = require('method-override'),
+    app = express(),
+    server = require('http').Server(app),
+    io = require('socket.io')(server);
+
+io.set('transports', ['polling']);
+
+var port = process.env.PORT || 4000;
+
+io.sockets.on('connection', function (socket) {
+
+  socket.emit('message', { text : 'Welcome!' });
+
+  socket.on('subscribe', function (data) {
+    socket.join(data.channel);
+  });
+});
+
+async.retry(
+  {times: 1000, interval: 1000},
+  function(callback) {
+    pg.connect('postgres://postgres@db/postgres', function(err, client, done) {
+      if (err) {
+        console.error("Waiting for db");
+      }
+      callback(err, client);
+    });
+  },
+  function(err, client) {
+    if (err) {
+      return console.error("Giving up");
+    }
+    console.log("Connected to db");
+    getVotes(client);
+  }
+);
+
+function getVotes(client) {
+  client.query('SELECT vote, COUNT(id) AS count FROM votes GROUP BY vote', [], function(err, result) {
+    if (err) {
+      console.error("Error performing query: " + err);
+    } else {
+      var votes = collectVotesFromResult(result);
+      io.sockets.emit("scores", JSON.stringify(votes));
+    }
+
+    setTimeout(function() {getVotes(client) }, 1000);
+  });
+}
+
+function collectVotesFromResult(result) {
+  var votes = {a: 0, b: 0};
+
+  result.rows.forEach(function (row) {
+    votes[row.vote] = parseInt(row.count);
+  });
+
+  return votes;
+}
+
+app.use(cookieParser());
+app.use(bodyParser());
+app.use(methodOverride('X-HTTP-Method-Override'));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
+  next();
+});
+
+app.use(express.static(__dirname + '/views'));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.resolve(__dirname + '/views/index.html'));
+});
+
+server.listen(port, function () {
+  var port = server.address().port;
+  console.log('App running on port ' + port);
+});
+[root@ip-172-31-13-238 result]# ll
+total 16
+-rw-r--r-- 1 root root  787 Dec 10 05:46 docker-compose.test.yml
+-rw-r--r-- 1 root root  334 Dec 10 05:46 Dockerfile
+-rw-r--r-- 1 root root  417 Dec 10 05:46 package.json
+-rw-r--r-- 1 root root 2239 Dec 10 05:46 server.js
+drwxr-xr-x 2 root root   57 Dec 10 05:46 tests
+drwxr-xr-x 3 root root   77 Dec 10 05:46 views
+[root@ip-172-31-13-238 result]# cd ..
+[root@ip-172-31-13-238 example-voting-app]# ll
+total 96
+-rw-r--r-- 1 root root 54824 Dec 10 05:46 architecture.png
+-rw-r--r-- 1 root root   609 Dec 10 05:46 dockercloud.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose-javaworker.yml
+-rw-r--r-- 1 root root   400 Dec 10 05:46 docker-compose-simple.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose.yml
+-rw-r--r-- 1 root root  1692 Dec 10 05:46 docker-stack.yml
+drwxr-xr-x 2 root root   250 Dec 10 05:46 k8s-specifications
+-rw-r--r-- 1 root root 10758 Dec 10 05:46 LICENSE
+-rw-r--r-- 1 root root   185 Dec 10 05:46 MAINTAINERS
+-rw-r--r-- 1 root root  2182 Dec 10 05:46 README.md
+drwxr-xr-x 5 root root   133 Dec 10 05:46 result
+drwxr-xr-x 4 root root    93 Dec 10 05:59 vote
+drwxr-xr-x 3 root root    70 Dec 10 05:46 worker
+[root@ip-172-31-13-238 example-voting-app]# cd worker/
+[root@ip-172-31-13-238 worker]# ll
+total 12
+-rw-r--r-- 1 root root  213 Dec 10 05:46 Dockerfile
+-rw-r--r-- 1 root root  473 Dec 10 05:46 Dockerfile.j
+-rw-r--r-- 1 root root 2504 Dec 10 05:46 pom.xml
+drwxr-xr-x 4 root root   32 Dec 10 05:46 src
+[root@ip-172-31-13-238 worker]# cd src/
+[root@ip-172-31-13-238 src]# ll
+total 0
+drwxr-xr-x 3 root root 18 Dec 10 05:46 main
+drwxr-xr-x 2 root root 45 Dec 10 05:46 Worker
+[root@ip-172-31-13-238 src]# cd Worker/
+[root@ip-172-31-13-238 Worker]# ll
+total 12
+-rw-r--r-- 1 root root 5521 Dec 10 05:46 Program.cs
+-rw-r--r-- 1 root root  654 Dec 10 05:46 Worker.csproj
+[root@ip-172-31-13-238 Worker]# ll
+total 12
+-rw-r--r-- 1 root root 5521 Dec 10 05:46 Program.cs
+-rw-r--r-- 1 root root  654 Dec 10 05:46 Worker.csproj
+[root@ip-172-31-13-238 Worker]# cd ..
+[root@ip-172-31-13-238 src]# ll
+total 0
+drwxr-xr-x 3 root root 18 Dec 10 05:46 main
+drwxr-xr-x 2 root root 45 Dec 10 05:46 Worker
+[root@ip-172-31-13-238 src]# cd ..
+[root@ip-172-31-13-238 worker]# ll
+total 12
+-rw-r--r-- 1 root root  213 Dec 10 05:46 Dockerfile
+-rw-r--r-- 1 root root  473 Dec 10 05:46 Dockerfile.j
+-rw-r--r-- 1 root root 2504 Dec 10 05:46 pom.xml
+drwxr-xr-x 4 root root   32 Dec 10 05:46 src
+[root@ip-172-31-13-238 worker]# cd ..
+[root@ip-172-31-13-238 example-voting-app]# ll
+total 96
+-rw-r--r-- 1 root root 54824 Dec 10 05:46 architecture.png
+-rw-r--r-- 1 root root   609 Dec 10 05:46 dockercloud.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose-javaworker.yml
+-rw-r--r-- 1 root root   400 Dec 10 05:46 docker-compose-simple.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose.yml
+-rw-r--r-- 1 root root  1692 Dec 10 05:46 docker-stack.yml
+drwxr-xr-x 2 root root   250 Dec 10 05:46 k8s-specifications
+-rw-r--r-- 1 root root 10758 Dec 10 05:46 LICENSE
+-rw-r--r-- 1 root root   185 Dec 10 05:46 MAINTAINERS
+-rw-r--r-- 1 root root  2182 Dec 10 05:46 README.md
+drwxr-xr-x 5 root root   133 Dec 10 05:46 result
+drwxr-xr-x 4 root root    93 Dec 10 05:59 vote
+drwxr-xr-x 3 root root    70 Dec 10 05:46 worker
+[root@ip-172-31-13-238 example-voting-app]# cd k8s-specifications/
+[root@ip-172-31-13-238 k8s-specifications]# ll
+total 36
+-rw-r--r-- 1 root root 401 Dec 10 05:46 db-deployment.yaml
+-rw-r--r-- 1 root root 146 Dec 10 05:46 db-service.yaml
+-rw-r--r-- 1 root root 402 Dec 10 05:46 redis-deployment.yaml
+-rw-r--r-- 1 root root 152 Dec 10 05:46 redis-service.yaml
+-rw-r--r-- 1 root root 299 Dec 10 05:46 result-deployment.yaml
+-rw-r--r-- 1 root root 195 Dec 10 05:46 result-service.yaml
+-rw-r--r-- 1 root root 289 Dec 10 05:46 vote-deployment.yaml
+-rw-r--r-- 1 root root 192 Dec 10 05:46 vote-service.yaml
+-rw-r--r-- 1 root root 292 Dec 10 05:46 worker-deployment.yaml
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl apply -f .
+deployment.apps/db created
+service/db created
+deployment.apps/redis created
+service/redis created
+deployment.apps/result created
+service/result created
+deployment.apps/vote created
+service/vote created
+deployment.apps/worker created
+[root@ip-172-31-13-238 k8s-specifications]# kubectl get all
+NAME                          READY   STATUS    RESTARTS   AGE
+pod/db-b54cd94f4-5nfnr        1/1     Running   0          2m12s
+pod/redis-868d64d78-khw6c     1/1     Running   0          2m12s
+pod/result-5d57b59f4b-dwlld   1/1     Running   0          2m12s
+pod/vote-94849dc97-pk4t9      1/1     Running   0          2m12s
+pod/worker-dd46d7584-pl6d6    1/1     Running   0          2m12s
+
+NAME                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+service/db           ClusterIP   10.97.2.44       <none>        5432/TCP         2m12s
+service/kubernetes   ClusterIP   10.96.0.1        <none>        443/TCP          44m
+service/redis        ClusterIP   10.102.166.54    <none>        6379/TCP         2m12s
+service/result       NodePort    10.111.156.169   <none>        5001:31001/TCP   2m12s
+service/vote         NodePort    10.98.124.167    <none>        5000:31000/TCP   2m12s
+
+NAME                     READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/db       1/1     1            1           2m12s
+deployment.apps/redis    1/1     1            1           2m12s
+deployment.apps/result   1/1     1            1           2m12s
+deployment.apps/vote     1/1     1            1           2m12s
+deployment.apps/worker   1/1     1            1           2m12s
+
+NAME                                DESIRED   CURRENT   READY   AGE
+replicaset.apps/db-b54cd94f4        1         1         1       2m12s
+replicaset.apps/redis-868d64d78     1         1         1       2m12s
+replicaset.apps/result-5d57b59f4b   1         1         1       2m12s
+replicaset.apps/vote-94849dc97      1         1         1       2m12s
+replicaset.apps/worker-dd46d7584    1         1         1       2m12s
+[root@ip-172-31-13-238 k8s-specifications]# ls
+db-deployment.yaml  redis-deployment.yaml  result-deployment.yaml  vote-deployment.yaml  worker-deployment.yaml
+db-service.yaml     redis-service.yaml     result-service.yaml     vote-service.yaml
+[root@ip-172-31-13-238 k8s-specifications]# ll
+total 36
+-rw-r--r-- 1 root root 401 Dec 10 05:46 db-deployment.yaml
+-rw-r--r-- 1 root root 146 Dec 10 05:46 db-service.yaml
+-rw-r--r-- 1 root root 402 Dec 10 05:46 redis-deployment.yaml
+-rw-r--r-- 1 root root 152 Dec 10 05:46 redis-service.yaml
+-rw-r--r-- 1 root root 299 Dec 10 05:46 result-deployment.yaml
+-rw-r--r-- 1 root root 195 Dec 10 05:46 result-service.yaml
+-rw-r--r-- 1 root root 289 Dec 10 05:46 vote-deployment.yaml
+-rw-r--r-- 1 root root 192 Dec 10 05:46 vote-service.yaml
+-rw-r--r-- 1 root root 292 Dec 10 05:46 worker-deployment.yaml
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl get pods
+NAME                      READY   STATUS    RESTARTS   AGE
+db-b54cd94f4-5nfnr        1/1     Running   0          15m
+redis-868d64d78-khw6c     1/1     Running   0          15m
+result-5d57b59f4b-dwlld   1/1     Running   0          15m
+vote-94849dc97-pk4t9      1/1     Running   0          15m
+worker-dd46d7584-pl6d6    1/1     Running   0          15m
+[root@ip-172-31-13-238 k8s-specifications]# kubectl delete po vote-94849dc97-pk4t9
+pod "vote-94849dc97-pk4t9" deleted
+[root@ip-172-31-13-238 k8s-specifications]# kubectl get pod
+NAME                      READY   STATUS    RESTARTS   AGE
+db-b54cd94f4-5nfnr        1/1     Running   0          81m
+redis-868d64d78-khw6c     1/1     Running   0          81m
+result-5d57b59f4b-dwlld   1/1     Running   0          81m
+vote-94849dc97-x4pgb      1/1     Running   0          32s
+worker-dd46d7584-pl6d6    1/1     Running   0          81m
+[root@ip-172-31-13-238 k8s-specifications]# kubectl logs worker-dd46d7584-pl6d6
+Connected to db
+Found redis at 10.102.166.54
+Connecting to redis
+Processing vote for 'b' by '3248e164d8457af3'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'a' by '3248e164d8457af3'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl logs worker-dd46d7584-pl6d6
+Connected to db
+Found redis at 10.102.166.54
+Connecting to redis
+Processing vote for 'b' by '3248e164d8457af3'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'a' by '3248e164d8457af3'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl logs worker-dd46d7584-pl6d6
+Connected to db
+Found redis at 10.102.166.54
+Connecting to redis
+Processing vote for 'b' by '3248e164d8457af3'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'a' by '3248e164d8457af3'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl logs worker-dd46d7584-pl6d6
+Connected to db
+Found redis at 10.102.166.54
+Connecting to redis
+Processing vote for 'b' by '3248e164d8457af3'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'a' by '3248e164d8457af3'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+[root@ip-172-31-13-238 k8s-specifications]# kubectl get pods
+NAME                      READY   STATUS    RESTARTS   AGE
+db-b54cd94f4-5nfnr        1/1     Running   0          87m
+redis-868d64d78-khw6c     1/1     Running   0          87m
+result-5d57b59f4b-dwlld   1/1     Running   0          87m
+vote-94849dc97-x4pgb      1/1     Running   0          6m14s
+worker-dd46d7584-pl6d6    1/1     Running   0          87m
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl delete po worker-dd46d7584-pl6d6
+pod "worker-dd46d7584-pl6d6" deleted
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl get pods
+NAME                      READY   STATUS    RESTARTS   AGE
+db-b54cd94f4-5nfnr        1/1     Running   0          89m
+redis-868d64d78-khw6c     1/1     Running   0          89m
+result-5d57b59f4b-dwlld   1/1     Running   0          89m
+vote-94849dc97-x4pgb      1/1     Running   0          7m34s
+worker-dd46d7584-ltphq    1/1     Running   0          42s
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl logs worker-dd46d7584-pl6d6
+Error from server (NotFound): pods "worker-dd46d7584-pl6d6" not found
+[root@ip-172-31-13-238 k8s-specifications]# kubectl get pods
+NAME                      READY   STATUS    RESTARTS   AGE
+db-b54cd94f4-5nfnr        1/1     Running   0          89m
+redis-868d64d78-khw6c     1/1     Running   0          89m
+result-5d57b59f4b-dwlld   1/1     Running   0          89m
+vote-94849dc97-x4pgb      1/1     Running   0          8m19s
+worker-dd46d7584-ltphq    1/1     Running   0          87s
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl logs worker-dd46d7584-pl6d6
+Error from server (NotFound): pods "worker-dd46d7584-pl6d6" not found
+[root@ip-172-31-13-238 k8s-specifications]# kubectl logs worker-dd46d7584-ltphq
+Connected to db
+Found redis at 10.102.166.54
+Connecting to redis
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl get pods
+NAME                      READY   STATUS    RESTARTS   AGE
+db-b54cd94f4-5nfnr        1/1     Running   0          99m
+redis-868d64d78-khw6c     1/1     Running   0          99m
+result-5d57b59f4b-dwlld   1/1     Running   0          99m
+vote-94849dc97-x4pgb      1/1     Running   0          18m
+worker-dd46d7584-ltphq    1/1     Running   0          11m
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl delete po db-b54cd94f4-5nfnr
+pod "db-b54cd94f4-5nfnr" deleted
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl get pods
+NAME                      READY   STATUS    RESTARTS   AGE
+db-b54cd94f4-gpvlr        1/1     Running   0          45s
+redis-868d64d78-khw6c     1/1     Running   0          100m
+result-5d57b59f4b-dwlld   1/1     Running   0          100m
+vote-94849dc97-x4pgb      1/1     Running   0          19m
+worker-dd46d7584-ltphq    1/1     Running   1          12m
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl logs worker-dd46d7584-ltphq
+Connected to db
+Found redis at 10.102.166.54
+Connecting to redis
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl logs worker-dd46d7584-ltphq
+Connected to db
+Found redis at 10.102.166.54
+Connecting to redis
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by '3248e164d8457af3'
+Processing vote for 'a' by 'c8db95e353514764'
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl logs worker-dd46d7584-ltphq
+Connected to db
+Found redis at 10.102.166.54
+Connecting to redis
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by '3248e164d8457af3'
+Processing vote for 'a' by 'c8db95e353514764'
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl logs worker-dd46d7584-ltphq
+Connected to db
+Found redis at 10.102.166.54
+Connecting to redis
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by '3248e164d8457af3'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'a' by '3248e164d8457af3'
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl logs worker-dd46d7584-ltphq
+Connected to db
+Found redis at 10.102.166.54
+Connecting to redis
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by '3248e164d8457af3'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'a' by '3248e164d8457af3'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl logs worker-dd46d7584-ltphq
+Connected to db
+Found redis at 10.102.166.54
+Connecting to redis
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by '3248e164d8457af3'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'a' by '3248e164d8457af3'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl logs worker-dd46d7584-ltphq
+Connected to db
+Found redis at 10.102.166.54
+Connecting to redis
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by '3248e164d8457af3'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'a' by '3248e164d8457af3'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by '3248e164d8457af3'
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl logs worker-dd46d7584-ltphq
+Connected to db
+Found redis at 10.102.166.54
+Connecting to redis
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+Processing vote for 'b' by 'dd2ba75d41bdef0d'
+Processing vote for 'b' by '3248e164d8457af3'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'a' by '3248e164d8457af3'
+Processing vote for 'a' by 'dd2ba75d41bdef0d'
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by '3248e164d8457af3'
+Processing vote for 'b' by '3248e164d8457af3'
+[root@ip-172-31-13-238 k8s-specifications]# kubectl get pods
+NAME                      READY   STATUS    RESTARTS   AGE
+db-b54cd94f4-gpvlr        1/1     Running   0          12m
+redis-868d64d78-khw6c     1/1     Running   0          113m
+result-5d57b59f4b-dwlld   1/1     Running   0          113m
+vote-94849dc97-x4pgb      1/1     Running   0          31m
+worker-dd46d7584-ltphq    1/1     Running   1          24m
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# ll
+total 36
+-rw-r--r-- 1 root root 401 Dec 10 05:46 db-deployment.yaml
+-rw-r--r-- 1 root root 146 Dec 10 05:46 db-service.yaml
+-rw-r--r-- 1 root root 402 Dec 10 05:46 redis-deployment.yaml
+-rw-r--r-- 1 root root 152 Dec 10 05:46 redis-service.yaml
+-rw-r--r-- 1 root root 299 Dec 10 05:46 result-deployment.yaml
+-rw-r--r-- 1 root root 195 Dec 10 05:46 result-service.yaml
+-rw-r--r-- 1 root root 289 Dec 10 05:46 vote-deployment.yaml
+-rw-r--r-- 1 root root 192 Dec 10 05:46 vote-service.yaml
+-rw-r--r-- 1 root root 292 Dec 10 05:46 worker-deployment.yaml
+[root@ip-172-31-13-238 k8s-specifications]# cd ..
+[root@ip-172-31-13-238 example-voting-app]# ll
+total 96
+-rw-r--r-- 1 root root 54824 Dec 10 05:46 architecture.png
+-rw-r--r-- 1 root root   609 Dec 10 05:46 dockercloud.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose-javaworker.yml
+-rw-r--r-- 1 root root   400 Dec 10 05:46 docker-compose-simple.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose.yml
+-rw-r--r-- 1 root root  1692 Dec 10 05:46 docker-stack.yml
+drwxr-xr-x 2 root root   250 Dec 10 05:46 k8s-specifications
+-rw-r--r-- 1 root root 10758 Dec 10 05:46 LICENSE
+-rw-r--r-- 1 root root   185 Dec 10 05:46 MAINTAINERS
+-rw-r--r-- 1 root root  2182 Dec 10 05:46 README.md
+drwxr-xr-x 5 root root   133 Dec 10 05:46 result
+drwxr-xr-x 4 root root    93 Dec 10 05:59 vote
+drwxr-xr-x 3 root root    70 Dec 10 05:46 worker
+[root@ip-172-31-13-238 example-voting-app]# cd result
+[root@ip-172-31-13-238 result]# ll
+total 16
+-rw-r--r-- 1 root root  787 Dec 10 05:46 docker-compose.test.yml
+-rw-r--r-- 1 root root  334 Dec 10 05:46 Dockerfile
+-rw-r--r-- 1 root root  417 Dec 10 05:46 package.json
+-rw-r--r-- 1 root root 2239 Dec 10 05:46 server.js
+drwxr-xr-x 2 root root   57 Dec 10 05:46 tests
+drwxr-xr-x 3 root root   77 Dec 10 05:46 views
+[root@ip-172-31-13-238 result]# cd tests/
+[root@ip-172-31-13-238 tests]# ll
+total 12
+-rw-r--r-- 1 root root 247 Dec 10 05:46 Dockerfile
+-rw-r--r-- 1 root root 295 Dec 10 05:46 render.js
+-rwxr-xr-x 1 root root 432 Dec 10 05:46 tests.sh
+[root@ip-172-31-13-238 tests]# cd ..
+[root@ip-172-31-13-238 result]# ll
+total 16
+-rw-r--r-- 1 root root  787 Dec 10 05:46 docker-compose.test.yml
+-rw-r--r-- 1 root root  334 Dec 10 05:46 Dockerfile
+-rw-r--r-- 1 root root  417 Dec 10 05:46 package.json
+-rw-r--r-- 1 root root 2239 Dec 10 05:46 server.js
+drwxr-xr-x 2 root root   57 Dec 10 05:46 tests
+drwxr-xr-x 3 root root   77 Dec 10 05:46 views
+[root@ip-172-31-13-238 result]# find _.js*
+find: ‘_.js*’: No such file or directory
+[root@ip-172-31-13-238 result]# kubectl get pods
+NAME                      READY   STATUS    RESTARTS   AGE
+db-b54cd94f4-gpvlr        1/1     Running   0          20m
+redis-868d64d78-khw6c     1/1     Running   0          120m
+result-5d57b59f4b-dwlld   1/1     Running   0          120m
+vote-94849dc97-x4pgb      1/1     Running   0          38m
+worker-dd46d7584-ltphq    1/1     Running   1          31m
+[root@ip-172-31-13-238 result]# ll
+total 16
+-rw-r--r-- 1 root root  787 Dec 10 05:46 docker-compose.test.yml
+-rw-r--r-- 1 root root  334 Dec 10 05:46 Dockerfile
+-rw-r--r-- 1 root root  417 Dec 10 05:46 package.json
+-rw-r--r-- 1 root root 2239 Dec 10 05:46 server.js
+drwxr-xr-x 2 root root   57 Dec 10 05:46 tests
+drwxr-xr-x 3 root root   77 Dec 10 05:46 views
+[root@ip-172-31-13-238 result]# cd ..
+[root@ip-172-31-13-238 example-voting-app]# ll
+total 96
+-rw-r--r-- 1 root root 54824 Dec 10 05:46 architecture.png
+-rw-r--r-- 1 root root   609 Dec 10 05:46 dockercloud.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose-javaworker.yml
+-rw-r--r-- 1 root root   400 Dec 10 05:46 docker-compose-simple.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose.yml
+-rw-r--r-- 1 root root  1692 Dec 10 05:46 docker-stack.yml
+drwxr-xr-x 2 root root   250 Dec 10 05:46 k8s-specifications
+-rw-r--r-- 1 root root 10758 Dec 10 05:46 LICENSE
+-rw-r--r-- 1 root root   185 Dec 10 05:46 MAINTAINERS
+-rw-r--r-- 1 root root  2182 Dec 10 05:46 README.md
+drwxr-xr-x 5 root root   133 Dec 10 05:46 result
+drwxr-xr-x 4 root root    93 Dec 10 05:59 vote
+drwxr-xr-x 3 root root    70 Dec 10 05:46 worker
+[root@ip-172-31-13-238 example-voting-app]# cd vote/
+[root@ip-172-31-13-238 vote]# ll
+total 12
+-rw-r--r-- 1 root root 1123 Dec 10 05:59 app.py
+-rw-r--r-- 1 root root  557 Dec 10 05:46 Dockerfile
+-rw-r--r-- 1 root root   21 Dec 10 05:46 requirements.txt
+drwxr-xr-x 3 root root   25 Dec 10 05:46 static
+drwxr-xr-x 2 root root   24 Dec 10 05:46 templates
+[root@ip-172-31-13-238 vote]#
+[root@ip-172-31-13-238 vote]#
+[root@ip-172-31-13-238 vote]# cd ..
+[root@ip-172-31-13-238 example-voting-app]# ll
+total 96
+-rw-r--r-- 1 root root 54824 Dec 10 05:46 architecture.png
+-rw-r--r-- 1 root root   609 Dec 10 05:46 dockercloud.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose-javaworker.yml
+-rw-r--r-- 1 root root   400 Dec 10 05:46 docker-compose-simple.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose.yml
+-rw-r--r-- 1 root root  1692 Dec 10 05:46 docker-stack.yml
+drwxr-xr-x 2 root root   250 Dec 10 05:46 k8s-specifications
+-rw-r--r-- 1 root root 10758 Dec 10 05:46 LICENSE
+-rw-r--r-- 1 root root   185 Dec 10 05:46 MAINTAINERS
+-rw-r--r-- 1 root root  2182 Dec 10 05:46 README.md
+drwxr-xr-x 5 root root   133 Dec 10 05:46 result
+drwxr-xr-x 4 root root    93 Dec 10 05:59 vote
+drwxr-xr-x 3 root root    70 Dec 10 05:46 worker
+[root@ip-172-31-13-238 example-voting-app]# cd result/
+[root@ip-172-31-13-238 result]# ll
+total 16
+-rw-r--r-- 1 root root  787 Dec 10 05:46 docker-compose.test.yml
+-rw-r--r-- 1 root root  334 Dec 10 05:46 Dockerfile
+-rw-r--r-- 1 root root  417 Dec 10 05:46 package.json
+-rw-r--r-- 1 root root 2239 Dec 10 05:46 server.js
+drwxr-xr-x 2 root root   57 Dec 10 05:46 tests
+drwxr-xr-x 3 root root   77 Dec 10 05:46 views
+[root@ip-172-31-13-238 result]# vi server.js
+[root@ip-172-31-13-238 result]# ll
+total 16
+-rw-r--r-- 1 root root  787 Dec 10 05:46 docker-compose.test.yml
+-rw-r--r-- 1 root root  334 Dec 10 05:46 Dockerfile
+-rw-r--r-- 1 root root  417 Dec 10 05:46 package.json
+-rw-r--r-- 1 root root 2239 Dec 10 05:46 server.js
+drwxr-xr-x 2 root root   57 Dec 10 05:46 tests
+drwxr-xr-x 3 root root   77 Dec 10 05:46 views
+[root@ip-172-31-13-238 result]# cd ..
+[root@ip-172-31-13-238 example-voting-app]# ll
+total 96
+-rw-r--r-- 1 root root 54824 Dec 10 05:46 architecture.png
+-rw-r--r-- 1 root root   609 Dec 10 05:46 dockercloud.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose-javaworker.yml
+-rw-r--r-- 1 root root   400 Dec 10 05:46 docker-compose-simple.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose.yml
+-rw-r--r-- 1 root root  1692 Dec 10 05:46 docker-stack.yml
+drwxr-xr-x 2 root root   250 Dec 10 05:46 k8s-specifications
+-rw-r--r-- 1 root root 10758 Dec 10 05:46 LICENSE
+-rw-r--r-- 1 root root   185 Dec 10 05:46 MAINTAINERS
+-rw-r--r-- 1 root root  2182 Dec 10 05:46 README.md
+drwxr-xr-x 5 root root   133 Dec 10 08:35 result
+drwxr-xr-x 4 root root    93 Dec 10 05:59 vote
+drwxr-xr-x 3 root root    70 Dec 10 05:46 worker
+[root@ip-172-31-13-238 example-voting-app]# cd k8s-specifications/
+[root@ip-172-31-13-238 k8s-specifications]# ll
+total 36
+-rw-r--r-- 1 root root 401 Dec 10 05:46 db-deployment.yaml
+-rw-r--r-- 1 root root 146 Dec 10 05:46 db-service.yaml
+-rw-r--r-- 1 root root 402 Dec 10 05:46 redis-deployment.yaml
+-rw-r--r-- 1 root root 152 Dec 10 05:46 redis-service.yaml
+-rw-r--r-- 1 root root 299 Dec 10 05:46 result-deployment.yaml
+-rw-r--r-- 1 root root 195 Dec 10 05:46 result-service.yaml
+-rw-r--r-- 1 root root 289 Dec 10 05:46 vote-deployment.yaml
+-rw-r--r-- 1 root root 192 Dec 10 05:46 vote-service.yaml
+-rw-r--r-- 1 root root 292 Dec 10 05:46 worker-deployment.yaml
+[root@ip-172-31-13-238 k8s-specifications]# kubectl get pods
+NAME                      READY   STATUS    RESTARTS   AGE
+db-b54cd94f4-gpvlr        1/1     Running   0          28m
+redis-868d64d78-khw6c     1/1     Running   0          128m
+result-5d57b59f4b-dwlld   1/1     Running   0          128m
+vote-94849dc97-x4pgb      1/1     Running   0          47m
+worker-dd46d7584-ltphq    1/1     Running   1          40m
+[root@ip-172-31-13-238 k8s-specifications]# kubectl describe db-b54cd94f4-gpvlr
+error: the server doesn't have a resource type "db-b54cd94f4-gpvlr"
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl get po -o wide
+NAME                      READY   STATUS    RESTARTS   AGE    IP                NODE                                            NOMINATED NODE   READINESS GATES
+db-b54cd94f4-gpvlr        1/1     Running   0          29m    192.168.244.209   ip-172-31-5-1.ap-southeast-1.compute.internal   <none>           <none>
+redis-868d64d78-khw6c     1/1     Running   0          129m   192.168.244.204   ip-172-31-5-1.ap-southeast-1.compute.internal   <none>           <none>
+result-5d57b59f4b-dwlld   1/1     Running   0          129m   192.168.244.203   ip-172-31-5-1.ap-southeast-1.compute.internal   <none>           <none>
+vote-94849dc97-x4pgb      1/1     Running   0          48m    192.168.244.207   ip-172-31-5-1.ap-southeast-1.compute.internal   <none>           <none>
+worker-dd46d7584-ltphq    1/1     Running   1          41m    192.168.244.208   ip-172-31-5-1.ap-southeast-1.compute.internal   <none>           <none>
+[root@ip-172-31-13-238 k8s-specifications]# cd ..
+[root@ip-172-31-13-238 example-voting-app]# ll
+total 96
+-rw-r--r-- 1 root root 54824 Dec 10 05:46 architecture.png
+-rw-r--r-- 1 root root   609 Dec 10 05:46 dockercloud.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose-javaworker.yml
+-rw-r--r-- 1 root root   400 Dec 10 05:46 docker-compose-simple.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose.yml
+-rw-r--r-- 1 root root  1692 Dec 10 05:46 docker-stack.yml
+drwxr-xr-x 2 root root   250 Dec 10 05:46 k8s-specifications
+-rw-r--r-- 1 root root 10758 Dec 10 05:46 LICENSE
+-rw-r--r-- 1 root root   185 Dec 10 05:46 MAINTAINERS
+-rw-r--r-- 1 root root  2182 Dec 10 05:46 README.md
+drwxr-xr-x 5 root root   133 Dec 10 08:35 result
+drwxr-xr-x 4 root root    93 Dec 10 05:59 vote
+drwxr-xr-x 3 root root    70 Dec 10 05:46 worker
+[root@ip-172-31-13-238 example-voting-app]# cd result
+[root@ip-172-31-13-238 result]# ll
+total 16
+-rw-r--r-- 1 root root  787 Dec 10 05:46 docker-compose.test.yml
+-rw-r--r-- 1 root root  334 Dec 10 05:46 Dockerfile
+-rw-r--r-- 1 root root  417 Dec 10 05:46 package.json
+-rw-r--r-- 1 root root 2239 Dec 10 05:46 server.js
+drwxr-xr-x 2 root root   57 Dec 10 05:46 tests
+drwxr-xr-x 3 root root   77 Dec 10 05:46 views
+[root@ip-172-31-13-238 result]# vi docker-compose.test.yml
+[root@ip-172-31-13-238 result]# cd ..
+[root@ip-172-31-13-238 example-voting-app]# ll
+total 96
+-rw-r--r-- 1 root root 54824 Dec 10 05:46 architecture.png
+-rw-r--r-- 1 root root   609 Dec 10 05:46 dockercloud.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose-javaworker.yml
+-rw-r--r-- 1 root root   400 Dec 10 05:46 docker-compose-simple.yml
+-rw-r--r-- 1 root root   808 Dec 10 05:46 docker-compose.yml
+-rw-r--r-- 1 root root  1692 Dec 10 05:46 docker-stack.yml
+drwxr-xr-x 2 root root   250 Dec 10 05:46 k8s-specifications
+-rw-r--r-- 1 root root 10758 Dec 10 05:46 LICENSE
+-rw-r--r-- 1 root root   185 Dec 10 05:46 MAINTAINERS
+-rw-r--r-- 1 root root  2182 Dec 10 05:46 README.md
+drwxr-xr-x 5 root root   133 Dec 10 08:44 result
+drwxr-xr-x 4 root root    93 Dec 10 05:59 vote
+drwxr-xr-x 3 root root    70 Dec 10 05:46 worker
+[root@ip-172-31-13-238 example-voting-app]# cd result
+[root@ip-172-31-13-238 result]# ll
+total 16
+-rw-r--r-- 1 root root  787 Dec 10 05:46 docker-compose.test.yml
+-rw-r--r-- 1 root root  334 Dec 10 05:46 Dockerfile
+-rw-r--r-- 1 root root  417 Dec 10 05:46 package.json
+-rw-r--r-- 1 root root 2239 Dec 10 05:46 server.js
+drwxr-xr-x 2 root root   57 Dec 10 05:46 tests
+drwxr-xr-x 3 root root   77 Dec 10 05:46 views
+[root@ip-172-31-13-238 result]# cd tests
+[root@ip-172-31-13-238 tests]# ll
+total 12
+-rw-r--r-- 1 root root 247 Dec 10 05:46 Dockerfile
+-rw-r--r-- 1 root root 295 Dec 10 05:46 render.js
+-rwxr-xr-x 1 root root 432 Dec 10 05:46 tests.sh
+[root@ip-172-31-13-238 tests]# cd ..
+[root@ip-172-31-13-238 result]# cd views/
+[root@ip-172-31-13-238 views]# ll
+total 180
+-rw-r--r-- 1 root root   1164 Dec 10 05:46 app.js
+-rw-r--r-- 1 root root   1470 Dec 10 05:46 index.html
+-rw-r--r-- 1 root root 174048 Dec 10 05:46 socket.io.js
+drwxr-xr-x 2 root root     23 Dec 10 05:46 stylesheets
+[root@ip-172-31-13-238 views]# cd ..
+[root@ip-172-31-13-238 result]# cd views/
+[root@ip-172-31-13-238 views]# ll
+total 180
+-rw-r--r-- 1 root root   1164 Dec 10 05:46 app.js
+-rw-r--r-- 1 root root   1470 Dec 10 05:46 index.html
+-rw-r--r-- 1 root root 174048 Dec 10 05:46 socket.io.js
+drwxr-xr-x 2 root root     23 Dec 10 05:46 stylesheets
+[root@ip-172-31-13-238 views]# vi app.js
+[root@ip-172-31-13-238 views]#
+[root@ip-172-31-13-238 views]# vi app.js
+[root@ip-172-31-13-238 views]#
+[root@ip-172-31-13-238 views]#
+[root@ip-172-31-13-238 views]# ll
+total 180
+-rw-r--r-- 1 root root   1164 Dec 10 05:46 app.js
+-rw-r--r-- 1 root root   1470 Dec 10 05:46 index.html
+-rw-r--r-- 1 root root 174048 Dec 10 05:46 socket.io.js
+drwxr-xr-x 2 root root     23 Dec 10 05:46 stylesheets
+[root@ip-172-31-13-238 views]# cd ..
+[root@ip-172-31-13-238 result]# ll
+total 16
+-rw-r--r-- 1 root root  787 Dec 10 05:46 docker-compose.test.yml
+-rw-r--r-- 1 root root  334 Dec 10 05:46 Dockerfile
+-rw-r--r-- 1 root root  417 Dec 10 05:46 package.json
+-rw-r--r-- 1 root root 2239 Dec 10 05:46 server.js
+drwxr-xr-x 2 root root   57 Dec 10 05:46 tests
+drwxr-xr-x 3 root root   77 Dec 10 08:54 views
+[root@ip-172-31-13-238 result]# pwd
+/root/example-voting-app/result
+[root@ip-172-31-13-238 result]# node server.js
+-bash: node: command not found
+[root@ip-172-31-13-238 result]# yum install node -y
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+amzn2-core                                                                                                                            | 3.7 kB  00:00:00
+No package node available.
+Error: Nothing to do
+[root@ip-172-31-13-238 result]# cd /root/example-voting-app/k8s-specifications
+[root@ip-172-31-13-238 k8s-specifications]# ll
+total 36
+-rw-r--r-- 1 root root 401 Dec 10 05:46 db-deployment.yaml
+-rw-r--r-- 1 root root 146 Dec 10 05:46 db-service.yaml
+-rw-r--r-- 1 root root 402 Dec 10 05:46 redis-deployment.yaml
+-rw-r--r-- 1 root root 152 Dec 10 05:46 redis-service.yaml
+-rw-r--r-- 1 root root 299 Dec 10 05:46 result-deployment.yaml
+-rw-r--r-- 1 root root 195 Dec 10 05:46 result-service.yaml
+-rw-r--r-- 1 root root 289 Dec 10 05:46 vote-deployment.yaml
+-rw-r--r-- 1 root root 192 Dec 10 05:46 vote-service.yaml
+-rw-r--r-- 1 root root 292 Dec 10 05:46 worker-deployment.yaml
+[root@ip-172-31-13-238 k8s-specifications]# vi result-service.yaml
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl get po
+NAME                      READY   STATUS    RESTARTS   AGE
+db-b54cd94f4-gpvlr        1/1     Running   0          59m
+redis-868d64d78-khw6c     1/1     Running   0          159m
+result-5d57b59f4b-dwlld   1/1     Running   0          159m
+vote-94849dc97-x4pgb      1/1     Running   0          78m
+worker-dd46d7584-ltphq    1/1     Running   1          71m
+
+observation after deleting db POD:-
+
+[root@ip-172-31-13-238 k8s-specifications]# kubectl delete po db-b54cd94f4-5nfnr
+pod "db-b54cd94f4-5nfnr" deleted
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl get pods
+NAME                      READY   STATUS    RESTARTS   AGE
+db-b54cd94f4-gpvlr        1/1     Running   0          45s
+redis-868d64d78-khw6c     1/1     Running   0          100m
+result-5d57b59f4b-dwlld   1/1     Running   0          100m
+vote-94849dc97-x4pgb      1/1     Running   0          19m
+worker-dd46d7584-ltphq    1/1     Running   1          12m
+[root@ip-172-31-13-238 k8s-specifications]#
+[root@ip-172-31-13-238 k8s-specifications]# kubectl logs worker-dd46d7584-ltphq
+Connected to db
+Found redis at 10.102.166.54
+Connecting to redis
+Processing vote for 'a' by 'c8db95e353514764'
+Processing vote for 'b' by 'c8db95e353514764'
+[root@ip-172-31-13-238 k8s-specifications]#
+
+After deleting DB POD voting app taken by default 50 % for A and 50 % for B
+after deleting db pod replica generated instantly but voting app taken by default 50 /50 percent.and logs also got deleted,
+No change after voting also
+voting app not showing the data,how many ppl are voting,but logs are generating if someone vote in worker node
+Communication got effected between db and worker  and result app
+
+Result pod work after deletion of db pod:
+after deleting db pod replica generated instantly but voting app taken by default 50 /50 percent.and logs also got deleted,
+No change after voting also voting app not showing the data,how many ppl are voting,but logs are generating if someone vote in worker node
+Communication got effected between db and worker  and result app,tried all finally So deleting the result pod worked.
+
+
+Jargons:
+
+Cluster
+Container
+Controller
+Daemon Set
+Deployment
+etcd
+Kube-scheduler
+Kubectl
+Kubelet
+Kube-controller-manager
+Kubernetes API Server
+Kube-proxy
+Namespace
+Node
+Pod
+etc.,
+
+
+
+
+
